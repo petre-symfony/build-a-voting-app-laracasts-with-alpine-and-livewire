@@ -36,6 +36,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
             },
+            fontSize: {
+                xxs: ['0.625rem', { lineHeight: '1rem' }]
+            }
         },
     },
 
