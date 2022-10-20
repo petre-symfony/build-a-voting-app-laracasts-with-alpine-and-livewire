@@ -16,7 +16,7 @@
 }
 
 .comment-container::before {
-    position: relative;
+    position: absolute;
     display: block;
     top: 57px;
     content: "";
