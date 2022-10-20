@@ -11,8 +11,7 @@
     content: "";
     width: 3px;
     height: 100%;
-    /* background: #78909c;*/
-    background: black;
+    background: #78909c;
     opacity: .07;
 }
 
@@ -23,8 +22,7 @@
     content: "";
     width: 23px;
     height: 3px;
-    /* background: #78909c;*/
-    background: black;
+    background: #78909c;
     left: -40px;
     opacity: .07
 }
