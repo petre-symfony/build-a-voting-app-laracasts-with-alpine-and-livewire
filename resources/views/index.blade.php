@@ -87,6 +87,7 @@
                                 <ul
                                     x-cloack
                                     x-show="isOpen"
+                                    x-transition.origin.top.left.duration.150ms
                                     @click.away="isOpen = false"
                                     @keydown.escape.window="isOpen = false"
                                     class="absolute w-44 text-left ml-8 font-semibold
