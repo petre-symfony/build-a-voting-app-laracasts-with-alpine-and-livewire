@@ -62,7 +62,10 @@
                             <div>&bull;</div>
                             <div class="text-gray-900">3 Comments</div>
                         </div>
-                        <div class="flex items-center space-x-2">
+                        <div
+                            x-data = "{ isOpen: false}"
+                            class="flex items-center space-x-2"
+                        >
                             <div
                                 class="bg-gray-200 text-xxs font-bold uppercase
                                     leading-none rounded-full text-center w-28
@@ -71,11 +74,23 @@
                             >
                                 Open
                             </div>
-                            <button class="relative bg-gray-100 hover:bg-gray-200 border transition duration-150 ease-in rounded-full h-7 py-2 px-4">
+                            <button
+                                @click="isOpen = !isOpen"
+                                class="
+                                    relative bg-gray-100 hover:bg-gray-200 border transition
+                                    duration-150 ease-in rounded-full h-7 py-2 px-4
+                                "
+                            >
                                 <svg class="text-gray-400 h-full scale-150" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                                 </svg>
-                                <ul class="absolute w-44 text-left ml-8 font-semibold bg-white shadow-dialog rounded-xl py-3">
+                                <ul
+                                    x-show="isOpen"
+                                    @click.away="isOpen=false"
+                                    class="absolute w-44 text-left ml-8 font-semibold
+                                        bg-white shadow-dialog rounded-xl py-3
+                                    "
+                                >
                                     <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Mark as spam</a></li>
                                     <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Delete Post</a></li>
                                 </ul>
