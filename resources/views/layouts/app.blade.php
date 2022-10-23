@@ -50,9 +50,9 @@
             </div>
         </header>
 
-        <main class="container mx-auto max-w-custom flex">
-            <div class="w-70 mr-5">
-                <div class="border-2 sticky top-8 border-blue rounded-xl mt-16 bg-white"
+        <main class="container mx-auto max-w-custom flex flex-col md:flex-row">
+            <div class="mx-auto md:mx-1 w-70 mr-5">
+                <div class="border-2 md:sticky md:top-8 border-blue rounded-xl mt-16 bg-white"
                     style="
                         border-image-source: linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
                         border-image-slice: 1;
