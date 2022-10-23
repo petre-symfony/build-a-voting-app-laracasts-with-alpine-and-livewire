@@ -85,8 +85,9 @@
                                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                                 </svg>
                                 <ul
+                                    x-cloack
                                     x-show="isOpen"
-                                    @click.away="isOpen=false"
+                                    @click.away="isOpen = false"
                                     class="absolute w-44 text-left ml-8 font-semibold
                                         bg-white shadow-dialog rounded-xl py-3
                                     "
