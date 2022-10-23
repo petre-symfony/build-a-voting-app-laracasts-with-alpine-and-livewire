@@ -112,7 +112,7 @@
                     x-transition.origin.top.left.duration.150ms
                     @click.away="isOpen = false"
                     @keydown.escape.window="isOpen = false"
-                    class="absolute z-10 w-104 text-left font-semibold text-sm
+                    class="absolute z-10 w-64 md:w-104 text-left font-semibold text-sm
                         bg-white shadow-dialog rounded-xl mt-5
                     "
                 >
@@ -124,10 +124,10 @@
                                 placeholder="Go ahead, don't be shy, share your thoughts..."
                             ></textarea>
 
-                            <div class="flex items-center space-x-3">
+                            <div class="flex flex-col md:flex-row items-center md:space-x-3">
                                 <button
                                     type="button"
-                                    class="flex items-center justify-center h-11 w-1/2
+                                    class="flex items-center justify-center h-11 w-full md:w-1/2
                                         text-sm text-white bg-blue font-semibold rounded-xl
                                         border border-blue hover:bg-blue-hover
                                         transition duration-150 ease-in px-6 py-3
@@ -137,10 +137,10 @@
                                 </button>
                                 <button
                                     type="button"
-                                    class="flex items-center justify-center w-32 h-11
+                                    class="flex items-center justify-center w-full md:w-32 h-11
                                     text-xs bg-gray-200 font-semibold rounded-xl
                                     border border-gray-200 hover:border-gray-400
-                                    transition duration-150 ease-in px-6 py-3
+                                    transition duration-150 ease-in px-6 py-3 mt-2 md:mt-0
                                 "
                                 >
                                     <svg class="text-gray-600 w-4 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
