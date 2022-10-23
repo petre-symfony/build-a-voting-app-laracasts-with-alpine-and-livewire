@@ -27,7 +27,7 @@
     </div><!-- end filters -->
     <div class="ideas-container space-y-6 my-6">
         <div class="idea-container hover:shadow-card transition duration-150 ease-in bg-white rounded-xl flex cursor-pointer">
-            <div class="border-r border-gray-100 px-5 py-8">
+            <div class="hidden md:block border-r border-gray-100 px-5 py-8">
                 <div class="text-center">
                     <div class="font-semibold text-2xl">12</div>
                     <div class="text-gray-500">Votes</div>
@@ -41,20 +41,20 @@
                     >Vote</button>
                 </div>
             </div>
-            <div class="flex flex-1 px-2 py-6">
-                <div>
+            <div class="flex flex-col md:flex-row flex-1 px-2 py-6">
+                <div class="mx-4 md:mx-0">
                     <a href="" class="flex-none">
                         <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="h-14 w-14 rounded-xl">
                     </a>
                 </div>
                 <div class="mx-4 w-full flex flex-col justify-between">
-                    <h4 class="text-xl font-semibold">
+                    <h4 class="text-xl font-semibold mt-2 md:mt-0">
                         <a href="" class="hover:underline">A random title can go here</a>
                     </h4>
                     <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit amet
                     </div>
-                    <div class="flex items-center justify-between mt-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                         <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
                             <div>10 hours ago</div>
                             <div>&bull;</div>
@@ -64,7 +64,7 @@
                         </div>
                         <div
                             x-data = "{ isOpen: false}"
-                            class="flex items-center space-x-2"
+                            class="flex items-center space-x-2 mt-4 md:mt-0"
                         >
                             <div
                                 class="bg-gray-200 text-xxs font-bold uppercase
