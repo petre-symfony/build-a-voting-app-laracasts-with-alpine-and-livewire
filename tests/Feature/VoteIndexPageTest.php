@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\IdeaIndex;
+use App\Http\Livewire\IdeaShow;
 use App\Models\Category;
 use App\Models\Idea;
 use App\Models\Status;
@@ -91,5 +92,31 @@ class VoteIndexPageTest extends TestCase {
             ->assertSet('votesCount', 5)
             ->assertSeeHtml('<div class="font-semibold text-2xl ">5</div>')
             ->assertSeeHtml('<div class="text-sm font-bold leading-none ">5</div>');
+    }
+
+    /** @test */
+    public function user_who_is_not_logged_in_is_redirected_to_login_page_when_trying_to_vote(){
+        $user = User::factory()->create();
+        $userB = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+
+        Livewire::test(IdeaShow::class, [
+            'idea' => $idea,
+            'votesCount' => 5
+        ])
+            ->call('vote')
+            ->assertRedirect(route('login'));
     }
 }
