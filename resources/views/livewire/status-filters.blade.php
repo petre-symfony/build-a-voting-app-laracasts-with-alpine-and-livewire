@@ -1,9 +1,15 @@
 <div>
     <nav class="hidden md:flex items-center justify-between text-xs">
         <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
-            <li><a href="" class="border-b-4 pb-3 border-blue">All Ideas (87)</a></li>
             <li>
                 <a
+                    wire:click.prevent="setStatus('All')"
+                    href=""
+                    class="border-b-4 pb-3 border-blue"
+                >All Ideas (87)</a></li>
+            <li>
+                <a
+                    wire:click.prevent="setStatus('Considering')"
                     href=""
                     class="text-gray-400 transition duration-150
                         ease-in border-b-4 pb-3 hover:border-blue"
@@ -11,6 +17,7 @@
             </li>
             <li>
                 <a
+                    wire:click.prevent="setStatus('In Progress')"
                     href=""
                     class="text-gray-400 transition duration-150
                         ease-in border-b-4 pb-3 hover:border-blue"
@@ -21,6 +28,7 @@
         <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
             <li>
                 <a
+                    wire:click.prevent="setStatus('Implemented')"
                     href=""
                     class="text-gray-400 transition duration-150
                         ease-in border-b-4 pb-3 hover:border-blue"
@@ -28,6 +36,7 @@
             </li>
             <li>
                 <a
+                    wire:click.prevent="setStatus('Closed')"
                     href=""
                     class="text-gray-400 transition duration-150
                         ease-in border-b-4 pb-3 hover:border-blue"
