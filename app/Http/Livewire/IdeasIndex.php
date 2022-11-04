@@ -12,13 +12,17 @@ use Livewire\WithPagination;
 class IdeasIndex extends Component {
     use WithPagination;
 
-    public $status = 'All';
+    public $status;
     public $category;
 
     protected $queryString = [
         'status',
         'category'
     ];
+
+    public function mount() {
+        $this->status =request()->status ?? 'All';
+    }
 
     protected $listeners = ['queryStringUpdatedStatus']; //the same as 'queryStringUpdatedStatus' => 'queryStringUpdatedStatus'
 
