@@ -7,14 +7,14 @@
                     href=""
                     class="border-b-4 pb-3
                         @if ($status === 'All') border-blue text-gray-900 @endif"
-                >All Ideas (87)</a></li>
+                >All Ideas ({{ $statusCount['all_statuses'] }})</a></li>
             <li>
                 <a
                     wire:click.prevent="setStatus('Considering')"
                     href=""
                     class="transition duration-150 ease-in border-b-4 pb-3 hover:border-blue
                         @if ($status === 'Considering') border-blue text-gray-900 @endif"
-                >Considering (6)</a>
+                >Considering ({{ $statusCount['considering'] }})</a>
             </li>
             <li>
                 <a
@@ -22,7 +22,7 @@
                     href=""
                     class="transition duration-150 ease-in border-b-4 pb-3 hover:border-blue
                         @if ($status === 'In Progress') border-blue text-gray-900 @endif"
-                >In Progress (1)</a>
+                >In Progress ({{ $statusCount['in_progress'] }})</a>
             </li>
         </ul>
 
@@ -33,7 +33,7 @@
                     href=""
                     class="transition duration-150 ease-in border-b-4 pb-3 hover:border-blue
                         @if ($status === 'Implemented') border-blue text-gray-900 @endif"
-                >Implemented (10)</a>
+                >Implemented ({{ $statusCount['implemented'] }})</a>
             </li>
             <li>
                 <a
@@ -41,7 +41,7 @@
                     href=""
                     class="transition duration-150 ease-in border-b-4 pb-3 hover:border-blue
                         @if ($status === 'Closed') border-blue text-gray-900 @endif"
-                >Closed (55)</a>
+                >Closed ({{ $statusCount['closed'] }})</a>
             </li>
         </ul>
     </nav>
