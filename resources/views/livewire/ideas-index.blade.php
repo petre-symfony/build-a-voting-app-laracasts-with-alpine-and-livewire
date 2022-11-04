@@ -34,5 +34,8 @@
             />
         @endforeach
     </div><!-- end ideas container -->
-    <div>{{ $ideas->links() }}</div>
+    <div>
+        {{-- {{ $ideas->links() }} --}}
+        {{ $ideas->appends(request()->query())->links() }}
+    </div>
 </div>
