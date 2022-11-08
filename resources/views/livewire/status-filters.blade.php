@@ -4,14 +4,14 @@
             <li>
                 <a
                     wire:click.prevent="setStatus('All')"
-                    href=""
+                    href="{{ route('idea.index', ['status' => 'All']) }}"
                     class="border-b-4 pb-3
                         @if ($status === 'All') border-blue text-gray-900 @endif"
                 >All Ideas ({{ $statusCount['all_statuses'] }})</a></li>
             <li>
                 <a
                     wire:click.prevent="setStatus('Considering')"
-                    href=""
+                    href="{{ route('idea.index', ['status' => 'Considering']) }}"
                     class="transition duration-150 ease-in border-b-4 pb-3 hover:border-blue
                         @if ($status === 'Considering') border-blue text-gray-900 @endif"
                 >Considering ({{ $statusCount['considering'] }})</a>
@@ -19,7 +19,7 @@
             <li>
                 <a
                     wire:click.prevent="setStatus('In Progress')"
-                    href=""
+                    href="{{ route('idea.index', ['status' => 'In Progress']) }}"
                     class="transition duration-150 ease-in border-b-4 pb-3 hover:border-blue
                         @if ($status === 'In Progress') border-blue text-gray-900 @endif"
                 >In Progress ({{ $statusCount['in_progress'] }})</a>
@@ -30,7 +30,7 @@
             <li>
                 <a
                     wire:click.prevent="setStatus('Implemented')"
-                    href=""
+                    href="route('idea.index', ['status' => 'Implemented'])"
                     class="transition duration-150 ease-in border-b-4 pb-3 hover:border-blue
                         @if ($status === 'Implemented') border-blue text-gray-900 @endif"
                 >Implemented ({{ $statusCount['implemented'] }})</a>
@@ -38,7 +38,7 @@
             <li>
                 <a
                     wire:click.prevent="setStatus('Closed')"
-                    href=""
+                    href="route('idea.index', ['status' => 'Closed'])"
                     class="transition duration-150 ease-in border-b-4 pb-3 hover:border-blue
                         @if ($status === 'Closed') border-blue text-gray-900 @endif"
                 >Closed ({{ $statusCount['closed'] }})</a>
