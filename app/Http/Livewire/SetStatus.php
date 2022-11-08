@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 class SetStatus extends Component {
     public $idea;
     public $status;
+    public $notifyAllVoters;
 
     public function mount(Idea $idea) {
         $this->idea = $idea;
@@ -24,7 +25,21 @@ class SetStatus extends Component {
         $this->idea->status_id = $this->status;
         $this->idea->save();
 
+        if ($this->notifyAllVoters) {
+            $this->notifyAllVoters();
+        }
+
         $this->emit('statusWasUpdated');
+    }
+
+    public function notifyAllVoters(){
+        $voters = $this->idea->votes()
+            ->select('name', 'email')
+            ->get();
+
+        foreach($voters as $user){
+            dump($user);
+        }
     }
 
     public function render() {
