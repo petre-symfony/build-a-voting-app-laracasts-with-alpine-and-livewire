@@ -15,7 +15,6 @@ class showIdeasTest extends TestCase {
 
     /** @test */
     public function list_of_ideas_shows_on_main_page() {
-        $user = User::factory()->create();
 
         $categoryOne = Category::factory()
             ->create(['name' => 'Category 1']);
@@ -26,14 +25,12 @@ class showIdeasTest extends TestCase {
         $statusConsidering = Status::factory()->create(['name' => 'Considering', 'classes' => 'bg-purple text-white']);
 
         $ideaOne = Idea::factory()->create([
-            'user_id' => $user,
             'title' => 'My First Idea',
             'category_id' => $categoryOne->id,
             'status_id' => $statusOpen->id,
             'description' => 'Description of my first idea'
         ]);
         $ideaTwo = Idea::factory()->create([
-            'user_id' => $user,
             'title' => 'My Second Idea',
             'category_id' => $categoryTwo->id,
             'status_id' => $statusConsidering->id,
@@ -54,13 +51,11 @@ class showIdeasTest extends TestCase {
 
     /** @test */
     public function single_idea_shows_correctly_on_the_show_page() {
-        $user = User::factory()->create();
 
         $categoryOne = Category::factory()
             ->create(['name' => 'Category 1']);
 
         $idea = Idea::factory()->create([
-            'user_id' => $user,
             'title' => 'My First Idea',
             'category_id' => $categoryOne->id,
             'description' => 'Description of my first idea'
@@ -97,17 +92,12 @@ class showIdeasTest extends TestCase {
 
     /** @test */
     public function same_idea_title_different_slugs(){
-        $user = User::factory()->create();
 
         $ideaOne = Idea::factory()->create([
-            'user_id' => $user,
-            'title' => 'My First Idea',
-            'description' => 'Description of my first idea'
+            'title' => 'My First Idea'
         ]);
         $ideaTwo = Idea::factory()->create([
-            'user_id' => $user,
-            'title' => 'My First Idea',
-            'description' => 'Another description for my first idea'
+            'title' => 'My First Idea'
         ]);
 
         $response = $this->get(route('idea.show', $ideaOne));
@@ -123,46 +113,21 @@ class showIdeasTest extends TestCase {
 
     /** @test */
     public function in_app_back_button_works_when_index_page_visited_first() {
-        $user = User::factory()->create();
 
-        $categoryOne = Category::factory()
-            ->create(['name' => 'Category 1']);
+        $ideaOne = Idea::factory()->create();
 
-        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
-
-        $ideaOne = Idea::factory()->create([
-            'user_id' => $user,
-            'title' => 'My First Idea',
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'description' => 'Description of my first idea'
-        ]);
-
-        $this->get('/?categtory=Category+2&status=Considering');
+        $this->get('/?categtory=Category+1&status=Considering');
         $response = $this->get(route('idea.show', $ideaOne));
 
         $this->assertStringContainsString(
-            '/?categtory=Category%202&status=Considering',
+            '/?categtory=Category%201&status=Considering',
             $response['backUrl']
         );
     }
 
     /** @test */
     public function in_app_back_button_works_when_show_page_only_page_visited() {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()
-            ->create(['name' => 'Category 1']);
-
-        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
-
-        $ideaOne = Idea::factory()->create([
-            'user_id' => $user,
-            'title' => 'My First Idea',
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'description' => 'Description of my first idea'
-        ]);
+        $ideaOne = Idea::factory()->create();
 
         $response = $this->get(route('idea.show', $ideaOne));
 

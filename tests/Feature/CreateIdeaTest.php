@@ -55,15 +55,14 @@ class CreateIdeaTest extends TestCase {
     public function creating_an_idea_works_correctly() {
         $user = User::factory()->create();
 
-        $catedoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $catedoryTwo = Category::factory()->create(['name' => 'Category 2']);
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
 
         $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
 
         Livewire::actingAs($user)
             ->test(CreateIdea::class)
             ->set('title', 'My First Idea')
-            ->set('category', $catedoryOne->id)
+            ->set('category', $categoryOne->id)
             ->set('description', 'This is my first idea')
             ->call('createIdea')
             ->assertRedirect('/');

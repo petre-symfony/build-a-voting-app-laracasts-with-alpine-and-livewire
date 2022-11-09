@@ -16,35 +16,20 @@ class CategoryFiltersTest extends TestCase {
 
     /** @test */
     public function selecting_a_category_filters_correctly(){
-        $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
         $categorTwo = Category::factory()->create(['name' => 'Category 2']);
 
-        $statusOpen = Status::factory()->create(['id' => 4, 'name' => 'Open']);
-
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'category_id' => $categoryOne->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categorTwo->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
         ]);
 
         Livewire::test(IdeasIndex::class)
@@ -57,35 +42,21 @@ class CategoryFiltersTest extends TestCase {
 
     /** @test */
     public function the_category_query_string_filters_correctly(){
-        $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
         $categorTwo = Category::factory()->create(['name' => 'Category 2']);
 
-        $statusOpen = Status::factory()->create(['id' => 4, 'name' => 'Open']);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'category_id' => $categoryOne->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'category_id' => $categoryOne->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categorTwo->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'category_id' => $categorTwo->id
         ]);
 
         Livewire::withQueryParams(['category' => 'Category 1'])
@@ -98,7 +69,6 @@ class CategoryFiltersTest extends TestCase {
 
     /** @test */
     public function selecting_a_status_and_a_category_filters_correctly(){
-        $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
         $categorTwo = Category::factory()->create(['name' => 'Category 2']);
@@ -107,35 +77,23 @@ class CategoryFiltersTest extends TestCase {
         $statusConsidering = Status::factory()->create(['name' => 'Considering']);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'status_id' => $statusOpen->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusConsidering->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'status_id' => $statusConsidering->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categorTwo->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'status_id' => $statusOpen->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categorTwo->id,
-            'status_id' => $statusConsidering->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'status_id' => $statusConsidering->id
         ]);
 
         Livewire::test(IdeasIndex::class)
@@ -150,7 +108,6 @@ class CategoryFiltersTest extends TestCase {
 
     /** @test */
     public function the_category_query_string_filters_correctly_with_status_and_category(){
-        $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
         $categorTwo = Category::factory()->create(['name' => 'Category 2']);
@@ -159,35 +116,23 @@ class CategoryFiltersTest extends TestCase {
         $statusConsidering = Status::factory()->create(['name' => 'Considering']);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'status_id' => $statusOpen->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusConsidering->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'status_id' => $statusConsidering->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categorTwo->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'status_id' => $statusOpen->id
         ]);
 
         Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categorTwo->id,
-            'status_id' => $statusConsidering->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
+            'status_id' => $statusConsidering->id
         ]);
 
         Livewire::withQueryParams(['status' => 'Open', 'category' => 'Category 1'])
@@ -201,36 +146,12 @@ class CategoryFiltersTest extends TestCase {
 
     /** @test */
     public function selecting_all_category_filters_correctly(){
-        $user = User::factory()->create();
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categorTwo = Category::factory()->create(['name' => 'Category 2']);
+        Idea::factory()->create();
 
-        $statusOpen = Status::factory()->create(['id' => 4, 'name' => 'Open']);
+        Idea::factory()->create();
 
-        Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
-        ]);
-
-        Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My Second Idea',
-            'description' => 'Description for my first idea'
-        ]);
-
-        Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categorTwo->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My Third Idea',
-            'description' => 'Description for my first idea'
-        ]);
+        Idea::factory()->create();
 
         Livewire::test(IdeasIndex::class)
             ->set('category', 'All Categories')
